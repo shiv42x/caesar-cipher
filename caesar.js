@@ -1,14 +1,14 @@
 const caesar = function(str, shift) {
     let cipher = "";
-    let shift2 = Math.abs(shift) % 26;
+    let shift_overflow = Math.abs(shift) % 26;
     for (let i = 0; i < str.length; i++)  {
         let unicode = str.charCodeAt(i); 
         if (unicode >= 65 && unicode <= 90) { 
             if (shift < 0) {
-                unicode -= shift2;
+                unicode -= shift_overflow;
             }
             if (shift > 0) {
-                unicode += shift2; 
+                unicode += shift_overflow; 
             }
             if (unicode < 65) { 
                 unicode = 90 + 1 - (65 - unicode); 
@@ -19,10 +19,10 @@ const caesar = function(str, shift) {
         }
         if (unicode >= 97 && unicode <= 122) { 
             if (shift < 0) {
-                unicode -= shift2;
+                unicode -= shift_overflow;
             }
             if (shift > 0) {
-                unicode += shift2; 
+                unicode += shift_overflow; 
             }
             if (unicode < 97) { 
                 unicode = 122 + 1 - (97 - unicode); 
